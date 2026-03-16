@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VANT | Agilidad Instantánea, Control Absoluto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .bg-primary { background-color: #2563eb; }
+        .text-primary { color: #2563eb; }
+        .border-primary { border-color: #2563eb; }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); }
+        .command-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #e2e8f0; }
+        .command-card:hover { transform: translateY(-10px); box-shadow: 0 25px 30px -10px rgba(37, 99, 235, 0.1); border-color: #2563eb; }
+        .gradient-brand { background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-[#fcfdfe] text-slate-900">
+
+    <!-- Navegación -->
+    <nav class="glass-nav sticky top-0 z-[100] border-b border-slate-200 px-8 py-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3 font-extrabold text-3xl tracking-tighter italic">
+                <div class="bg-primary text-white p-2 rounded-xl shadow-xl shadow-blue-300">
+                    <i data-lucide="command" class="w-7 h-7"></i>
+                </div>
+                <span>VANT</span>
+            </div>
+            <div class="hidden lg:flex gap-10 font-bold text-[10px] uppercase tracking-[0.25em] text-slate-400">
+                <a href="#consola" class="hover:text-primary transition">La Consola</a>
+                <a href="#precios" class="hover:text-primary transition">Precios Reales</a>
+                <a href="#tarjetas" class="hover:text-primary transition">Gestión Deuda</a>
+                <a href="#seguridad" class="hover:text-primary transition">Protección</a>
+            </div>
+            <button class="bg-slate-900 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl hover:bg-primary transition-all">
+                Iniciar Consola
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero: La Consola de Comando -->
+    <header class="relative max-w-7xl mx-auto px-8 pt-24 pb-20 overflow-hidden">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-10">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-50 text-primary border border-blue-100 text-[10px] font-black uppercase tracking-[0.2em] italic">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Financial Command Center
+                </div>
+                <h1 class="text-6xl md:text-7xl font-[900] leading-[1] tracking-tight gradient-brand">
+                    VANT: Agilidad instantánea, <span class="italic text-primary decoration-blue-500/20 underline">control absoluto.</span>
+                </h1>
+                <p class="text-xl text-slate-500 font-medium leading-relaxed max-w-xl italic">
+                    Simplifica tu gestión y protege tu dinero con la consola definitiva. Registra por voz, domina tus tarjetas y rastrea la verdad detrás de cada precio.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5 pt-4">
+                    <button class="bg-primary text-white px-10 py-5 rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] shadow-3xl shadow-blue-400 hover:scale-105 transition-all flex items-center justify-center gap-3">
+                        Configurar mi cuenta
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-3 gap-8 pt-8 border-t border-slate-100">
+                    <div>
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1 italic">Carga de Datos</p>
+                        <p class="text-sm font-black text-slate-900">Sin Fricción (Voz)</p>
+                    </div>
+                    <div>
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1 italic">Análisis</p>
+                        <p class="text-sm font-black text-slate-900">Evolución Real</p>
+                    </div>
+                    <div>
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1 italic">Arquitectura</p>
+                        <p class="text-sm font-black text-slate-900">Seguridad RLS</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Preview: Modo Consola -->
+            <div class="relative">
+                <div class="bg-slate-900 rounded-[3rem] p-10 shadow-3xl shadow-blue-900/30 border-[12px] border-slate-800 relative z-10 overflow-hidden">
+                    <div class="flex justify-between items-center mb-10 pb-6 border-b border-white/10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white"><i data-lucide="activity"></i></div>
+                            <div>
+                                <p class="text-[8px] font-black text-blue-400 uppercase tracking-widest italic leading-none">Status: Online</p>
+                                <h3 class="text-2xl font-black text-white italic">Consola VANT</h3>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-rose-500/20 border border-rose-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-500/20 border border-amber-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-500/50"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <!-- Tarjetas Mockup -->
+                        <div class="bg-white/5 p-6 rounded-[2rem] border border-white/10">
+                            <div class="flex justify-between items-center mb-6">
+                                <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest italic italic leading-none">// Gestión_Tarjetas</p>
+                                <span class="bg-blue-600 text-white text-[8px] px-2 py-1 rounded-full font-black">12 CUOTAS PEND.</span>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <div class="flex-1 space-y-3">
+                                    <div class="h-2 bg-slate-800 rounded-full"><div class="h-full bg-blue-500 w-3/4"></div></div>
+                                    <div class="flex justify-between text-[10px] font-bold">
+                                        <span class="text-slate-400 uppercase tracking-tighter italic italic italic italic italic italic italic italic italic italic">Próximo Cierre</span>
+                                        <span class="text-white">$84.200</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="credit-card" class="text-blue-400 w-8 h-8"></i>
+                            </div>
+                        </div>
+
+                        <!-- Evolución Precios Mockup -->
+                        <div class="bg-white/5 p-6 rounded-[2rem] border border-white/10">
+                            <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest italic italic leading-none mb-6">// Fluctuación_Precios (Item: Café)</p>
+                            <div class="flex items-end gap-2 h-16">
+                                <div class="flex-1 bg-blue-500/20 h-1/2 rounded-t-sm"></div>
+                                <div class="flex-1 bg-blue-500/40 h-2/3 rounded-t-sm"></div>
+                                <div class="flex-1 bg-blue-500/60 h-3/4 rounded-t-sm"></div>
+                                <div class="flex-1 bg-blue-600 h-full rounded-t-sm relative">
+                                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 text-[8px] font-black text-rose-400">+12%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Secciones de Poder -->
+    <section id="consola" class="max-w-7xl mx-auto px-8 py-24 border-t border-slate-100">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <!-- Capacidad 1 -->
+            <div class="p-10 bg-white rounded-[3rem] command-card">
+                <div class="bg-blue-50 text-primary w-16 h-16 flex items-center justify-center rounded-3xl mb-8 shadow-inner"><i data-lucide="zap"></i></div>
+                <h4 class="text-2xl font-[900] italic mb-4 tracking-tighter uppercase leading-none">Agilidad<br>Instantánea</h4>
+                <p class="text-slate-500 text-sm font-medium leading-relaxed italic italic">Registrar por voz elimina la fricción. Habla, el sistema procesa y tú sigues con tu vida. Sin esperas.</p>
+            </div>
+            <!-- Capacidad 2 -->
+            <div class="p-10 bg-white rounded-[3rem] command-card">
+                <div class="bg-emerald-50 text-emerald-600 w-16 h-16 flex items-center justify-center rounded-3xl mb-8 shadow-inner"><i data-lucide="shield-check"></i></div>
+                <h4 class="text-2xl font-[900] italic mb-4 tracking-tighter uppercase leading-none">Control<br>Absoluto</h4>
+                <p class="text-slate-500 text-sm font-medium leading-relaxed italic italic italic">Gestión completa de tarjetas de crédito, cierres y cuotas. No más sorpresas al final del mes.</p>
+            </div>
+            <!-- Capacidad 3 -->
+            <div class="p-10 bg-white rounded-[3rem] command-card">
+                <div class="bg-rose-50 text-rose-600 w-16 h-16 flex items-center justify-center rounded-3xl mb-8 shadow-inner"><i data-lucide="trending-up"></i></div>
+                <h4 class="text-2xl font-[900] italic mb-4 tracking-tighter uppercase leading-none">Fluctuación<br>Real</h4>
+                <p class="text-slate-500 text-sm font-medium leading-relaxed italic italic italic italic">Mira cómo cambian los precios de cada producto mes a mes. Conoce qué está aumentando de verdad.</p>
+            </div>
+            <!-- Capacidad 4 -->
+            <div class="p-10 bg-slate-900 text-white rounded-[3rem] command-card">
+                <div class="bg-blue-600 text-white w-16 h-16 flex items-center justify-center rounded-3xl mb-8 shadow-lg shadow-blue-500/20"><i data-lucide="cpu"></i></div>
+                <h4 class="text-2xl font-[900] italic mb-4 tracking-tighter uppercase leading-none">Soporte<br>Inteligente</h4>
+                <p class="text-slate-400 text-sm font-medium leading-relaxed italic italic italic italic italic">El asistente que sostiene tus compromisos financieros y revela estadísticas que las otras apps ignoran.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficio de Valor Real -->
+    <section id="precios" class="bg-slate-50 py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-8">
+                <h2 class="text-xs font-black text-primary uppercase tracking-[0.4em] italic leading-none italic italic italic italic italic">Decisiones Basadas en Realidad</h2>
+                <h3 class="text-5xl font-black tracking-tight leading-none italic italic italic italic italic italic italic italic italic">No más suposiciones sobre el costo de vida.</h3>
+                <p class="text-lg text-slate-600 font-medium italic leading-relaxed italic italic italic italic italic italic italic italic italic">
+                    VANT analiza la evolución de precios histórica de cada ítem de tu catálogo. Identifica tendencias, detecta abusos y toma el control del valor real de tu dinero.
+                </p>
+                <ul class="space-y-6">
+                    <li class="flex items-center gap-4 text-sm font-black uppercase tracking-widest text-slate-500 italic italic italic italic italic italic italic italic italic italic italic">
+                        <i data-lucide="check" class="text-blue-500"></i> Comparativa Mes a Mes por Producto
+                    </li>
+                    <li class="flex items-center gap-4 text-sm font-black uppercase tracking-widest text-slate-500 italic italic italic italic italic italic italic italic italic italic italic">
+                        <i data-lucide="check" class="text-blue-500"></i> Detección de Fluctuaciones Críticas
+                    </li>
+                    <li class="flex items-center gap-4 text-sm font-black uppercase tracking-widest text-slate-500 italic italic italic italic italic italic italic italic italic italic italic">
+                        <i data-lucide="check" class="text-blue-500"></i> Proyección de Ahorro Estratégico
+                    </li>
+                </ul>
+            </div>
+            <div class="relative">
+                <div class="bg-white p-12 rounded-[4rem] shadow-2xl shadow-slate-200 border border-slate-100">
+                    <div class="flex justify-between items-center mb-12">
+                        <h4 class="text-xl font-black italic italic italic italic italic italic italic italic italic italic italic tracking-tighter leading-none italic italic italic italic italic italic italic italic italic italic italic italic italic">Evolución de Costos</h4>
+                        <i data-lucide="filter" class="text-slate-300"></i>
+                    </div>
+                    <div class="space-y-10">
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-xs font-black uppercase italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic"><span>Panadería (Kg)</span> <span class="text-rose-500">+14%</span></div>
+                            <div class="h-4 bg-slate-50 rounded-full overflow-hidden"><div class="h-full bg-slate-900 w-[85%]"></div></div>
+                        </div>
+                        <div class="space-y-3 opacity-50">
+                            <div class="flex justify-between text-xs font-black uppercase italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic"><span>Lácteos (Lt)</span> <span class="text-emerald-500">-2%</span></div>
+                            <div class="h-4 bg-slate-50 rounded-full overflow-hidden"><div class="h-full bg-slate-300 w-[45%]"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer: Consola de Salida -->
+    <footer class="max-w-7xl mx-auto px-8 py-20 border-t border-slate-200 text-center">
+        <div class="flex justify-center mb-10">
+            <div class="bg-primary text-white p-3 rounded-2xl"><i data-lucide="command" class="w-8 h-8"></i></div>
+        </div>
+        <h2 class="text-4xl font-black italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic tracking-tighter mb-6 italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic">Simplifica tu gestión. Protege tu dinero.</h2>
+        <p class="text-slate-400 font-bold uppercase tracking-[0.3em] text-[10px] italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic italic">VANT © 2026 // FINANCIAL_OPERATING_SYSTEM</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
