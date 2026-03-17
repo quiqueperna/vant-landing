@@ -37,9 +37,8 @@
                 <span>VANT</span>
             </div>
             <div class="hidden lg:flex gap-10 font-bold text-[10px] uppercase tracking-[0.25em] text-slate-400">
-                <a href="#consola" class="hover:text-primary transition text-slate-500">La Consola</a>
-                <a href="#precios" class="hover:text-primary transition text-slate-500">Precios</a>
-                <a href="#tarjetas" class="hover:text-primary transition text-slate-500">Tarjetas</a>
+                <a href="#consola" class="hover:text-primary transition text-slate-500">Funcionalidades</a>
+                <a href="#" class="hover:text-primary transition text-slate-500">Dashboard</a>
             </div>
             <button class="bg-slate-900 text-white px-7 py-2.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-primary transition-all shadow-sm">
                 Acceder
@@ -48,36 +47,25 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="max-w-7xl mx-auto px-8 pt-10 pb-20 overflow-hidden">
-        <div class="grid lg:grid-cols-12 gap-16 items-center">
+    <header class="max-w-7xl mx-auto px-8 pt-10 pb-8 overflow-hidden">
+        <div class="grid lg:grid-cols-12 gap-16 items-start">
             
             <!-- Bloque de Texto Rediseñado -->
-            <div class="space-y-10 lg:col-span-5">
-                <div class="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-slate-50 text-slate-400 border border-slate-100 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <div class="lg:col-span-5 pt-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 text-slate-400 rounded-full text-[9px] font-black tracking-widest uppercase border border-slate-100 mb-6">
                     <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                    Financial Command Center
+                    Tu aliado financiero
                 </div>
-                
                 <div class="space-y-8 border-l-2 border-slate-100 pl-8">
-                    <h1 class="text-3xl md:text-4xl font-light leading-[1.2] tracking-tight text-slate-600">
+                    <h1 class="text-2xl md:text-3xl font-light leading-[1.2] tracking-tight text-slate-600">
                         Registra por voz, simplifica tu gestión, <br>
                         <span class="font-bold text-slate-900">toma el control total para proteger tu dinero.</span>
                     </h1>
                     
-                    <p class="text-lg text-slate-400 font-medium leading-relaxed max-w-lg italic">
+                    <p class="text-base text-slate-400 font-medium leading-relaxed max-w-lg italic">
                         Domina tus tarjetas, rastrea la fluctuación de tus precios y organiza tus finanzas. <br>
                         <span class="text-slate-900 font-semibold not-italic">Gestión inteligente al alcance de tu voz.</span>
                     </p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest shadow-xl shadow-blue-100 hover:scale-105 transition-all flex items-center justify-center gap-3">
-                        Comenzar ahora
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
-                    <button class="bg-white text-slate-500 border border-slate-200 px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-slate-50 transition-all">
-                        Ver funciones
-                    </button>
                 </div>
             </div>
 
@@ -93,30 +81,47 @@
     </header>
 
     <!-- Secciones de Poder -->
-    <section id="consola" class="max-w-7xl mx-auto px-8 py-24 border-t border-slate-50">
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="p-10 bg-white rounded-[2.5rem] command-card">
-                <div class="text-primary mb-8 shadow-sm"><i data-lucide="mic" class="w-7 h-7"></i></div>
-                <h4 class="text-xl font-bold mb-4 tracking-tight">Agilidad por voz</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Habla, el sistema procesa y tú sigues con tu vida. La carga de datos más rápida.</p>
-            </div>
-            <div class="p-10 bg-white rounded-[2.5rem] command-card">
-                <div class="text-emerald-500 mb-8 shadow-sm"><i data-lucide="credit-card" class="w-7 h-7"></i></div>
-                <h4 class="text-xl font-bold mb-4 tracking-tight">Control Absoluto</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Gestión completa de tarjetas, cierres y cuotas. Cero sorpresas a fin de mes.</p>
-            </div>
-            <div class="p-10 bg-white rounded-[2.5rem] command-card">
-                <div class="text-rose-500 mb-8 shadow-sm"><i data-lucide="trending-up" class="w-7 h-7"></i></div>
-                <h4 class="text-xl font-bold mb-4 tracking-tight">Fluctuación Real</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Mira cómo cambian los precios mes a mes. Conoce qué aumenta de verdad.</p>
-            </div>
-            <div class="p-10 bg-slate-900 text-white rounded-[2.5rem] shadow-2xl shadow-slate-200">
-                <div class="text-blue-400 mb-8"><i data-lucide="cpu" class="w-7 h-7"></i></div>
-                <h4 class="text-xl font-bold mb-4 tracking-tight">Asesor Virtual</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">El aliado que sostiene tus compromisos y revela estadísticas clave.</p>
-            </div>
+    <section id="consola" class="max-w-7xl mx-auto px-8 py-12 border-t border-slate-50">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="modules-container">
+            <!-- Los módulos se cargarán mediante JS -->
         </div>
     </section>
+
+    <!-- Modal de Detalle -->
+    <div id="module-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm transition-all">
+        <div class="bg-white w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden transform transition-all scale-95 opacity-0" id="modal-content">
+            <div class="relative h-64 bg-slate-100 overflow-hidden">
+                <img id="modal-image" src="" alt="Modulo" class="w-full h-full object-cover">
+                <button onclick="closeModal()" class="absolute top-6 right-6 bg-white/80 backdrop-blur text-slate-900 p-2 rounded-full hover:bg-white transition-all">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-10 space-y-6">
+                <div id="modal-icon" class="text-primary"></div>
+                <div>
+                    <h3 id="modal-title" class="text-2xl font-bold tracking-tight text-slate-900 mb-2"></h3>
+                    <p id="modal-description" class="text-slate-500 leading-relaxed text-base italic font-medium"></p>
+                </div>
+                <div class="pt-6 border-t border-slate-100">
+                    <button onclick="closeModal()" class="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-primary transition-all">
+                        Entendido
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Video -->
+    <div id="video-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md transition-all">
+        <div class="bg-black w-full max-w-4xl rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 opacity-0" id="video-modal-content">
+            <button onclick="closeVideoModal()" class="absolute top-6 right-6 z-10 bg-white/20 hover:bg-white/40 backdrop-blur text-white p-2 rounded-full transition-all">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <video id="modal-player" controls class="w-full aspect-video bg-black">
+                <source src="images/voice.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="max-w-7xl mx-auto px-8 py-16 border-t border-slate-50 flex justify-between items-center">
@@ -128,21 +133,218 @@
     </footer>
 
     <script>
+        const modules = [
+            {
+                id: 'registro',
+                icon: 'mic',
+                color: 'text-primary',
+                title: 'Registro Inteligente',
+                short: 'Voz NLP y manual con autocompletado inteligente.',
+                long: 'Habla y la app entiende: "leche 2 litros 1500". Procesa montos, cuotas y medios de pago automáticamente mediante procesamiento de lenguaje natural avanzado.',
+                image: 'images/registro.jpg'
+            },
+            {
+                id: 'categorizacion',
+                icon: 'layers',
+                color: 'text-indigo-500',
+                title: 'Estructura de Precisión',
+                short: 'Control granular desde el tipo de gasto hasta el ítem exacto.',
+                long: 'La jerarquía más avanzada del mercado: Tipo (N1), Área (N2), Subcategoría (N3) e Ítem (N4). Organiza tu catálogo personal con precisión milimétrica.',
+                image: 'images/precision.jpg'
+            },
+            {
+                id: 'tarjetas',
+                icon: 'credit-card',
+                color: 'text-emerald-500',
+                title: 'Control de Cuotas',
+                short: 'Automatización de tarjetas, cierres y vencimientos.',
+                long: 'Seguimiento de 2 a 120 cuotas con generación automática de registros futuros según el día de cierre de cada tarjeta. Etiquetado inteligente de progresión.',
+                image: 'images/tarjetas.jpg'
+            },
+            {
+                id: 'inflacion',
+                icon: 'trending-up',
+                color: 'text-rose-500',
+                title: 'Radar Inflacionario',
+                short: 'Seguimiento de precios unitarios y valor real.',
+                long: 'Rastrea la evolución del precio de cada ítem (monto/cantidad). Proyecciones futuras con regresión lineal e identificación de productos más afectados.',
+                image: 'images/inflacion.jpg'
+            },
+            {
+                id: 'dashboard',
+                icon: 'layout-dashboard',
+                color: 'text-blue-500',
+                title: 'Dashboard Pro',
+                short: 'KPIs, gráficos y widgets personalizables.',
+                long: 'Visualiza tu salud financiera con gráficos de dona por tipo, barras por subcategoría y widgets que puedes organizar a tu medida.',
+                image: 'images/dashboard.jpg'
+            },
+            {
+                id: 'ingresos',
+                icon: 'wallet',
+                color: 'text-cyan-500',
+                title: 'Gestión de Ingresos',
+                short: 'Múltiples fuentes y ratio gasto/ingreso real.',
+                long: 'Registra sueldos, freelance y rentas. El sistema calcula automáticamente la relación de gastos frente a tus ingresos totales del mes.',
+                image: 'images/ingresos.jpg'
+            },
+            {
+                id: 'recurrentes',
+                icon: 'refresh-cw',
+                color: 'text-violet-500',
+                title: 'Gastos Recurrentes',
+                short: 'Automatización de pagos fijos y cíclicos.',
+                long: 'Configura gastos que se repiten automáticamente con frecuencias personalizadas. Gestiona tus suscripciones y servicios fijos sin esfuerzo.',
+                image: 'images/recurrentes.jpg'
+            },
+            {
+                id: 'listado',
+                icon: 'list',
+                color: 'text-slate-600',
+                title: 'Auditoría Total',
+                short: 'Listado avanzado con filtros combinados y búsqueda.',
+                long: 'Tabla configurable con ordenamiento por cualquier columna, filtros por período, medio de pago y búsqueda de texto libre.',
+                image: 'images/listado.jpg'
+            },
+            {
+                id: 'revision',
+                icon: 'check-square',
+                color: 'text-amber-500',
+                title: 'Bandeja de Revisión',
+                short: 'Panel de auditoría para carga de datos por voz.',
+                long: 'Espacio dedicado para revisar registros no reconocidos automáticamente. Corrige montos, asigna categorías y entrena al sistema para futuros registros.',
+                image: 'images/revision.jpg'
+            },
+            {
+                id: 'advisor',
+                icon: 'cpu',
+                color: 'text-slate-900',
+                title: 'Asesor Virtual',
+                short: 'Optimización de compras y proyecciones IA.',
+                long: 'Motor determinista que sugiere compras al por mayor, detecta crecimientos anómalos y proyecta el cierre de mes basado en tu ritmo actual.',
+                image: 'images/advisor.jpg'
+            },
+            {
+                id: 'settings',
+                icon: 'settings',
+                color: 'text-slate-400',
+                title: 'Configuración Global',
+                short: 'Multi-moneda, temas y gestión de activos.',
+                long: 'Personaliza tu experiencia con 10+ monedas, modo oscuro automático y gestión completa de tarjetas y unidades personalizadas.',
+                image: 'images/settings.jpg'
+            },
+            {
+                id: 'pwa',
+                icon: 'smartphone',
+                color: 'text-blue-600',
+                title: 'Ecosistema PWA',
+                short: 'Instalable, sincronizado y seguro (RLS).',
+                long: 'Lleva VANT en tu móvil como una app nativa. Datos sincronizados en la nube y aislados mediante seguridad Row-Level Security.',
+                image: 'images/pwa.jpg'
+            }
+        ];
+
+        function renderModules() {
+            const container = document.getElementById('modules-container');
+            container.innerHTML = modules.map(m => `
+                <div onclick="openModal('${m.id}')" class="p-8 rounded-[2rem] command-card cursor-pointer group bg-white border border-slate-100">
+                    <div class="${m.color} mb-6 shadow-sm transition-transform group-hover:scale-110">
+                        <i data-lucide="${m.icon}" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold mb-3 tracking-tight">${m.title}</h4>
+                    <p class="text-slate-500 text-xs leading-relaxed">${m.short}</p>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function openModal(id) {
+            const m = modules.find(x => x.id === id);
+            const modal = document.getElementById('module-modal');
+            const content = document.getElementById('modal-content');
+            
+            document.getElementById('modal-title').innerText = m.title;
+            document.getElementById('modal-description').innerText = m.long;
+            document.getElementById('modal-image').src = m.image;
+            document.getElementById('modal-icon').innerHTML = `<i data-lucide="${m.icon}" class="w-10 h-10"></i>`;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('module-modal');
+            const content = document.getElementById('modal-content');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+
+        function openVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const content = document.getElementById('video-modal-content');
+            const player = document.getElementById('modal-player');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+                player.play();
+            }, 10);
+            
+            lucide.createIcons();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const content = document.getElementById('video-modal-content');
+            const player = document.getElementById('modal-player');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                player.pause();
+                player.currentTime = 0;
+            }, 300);
+        }
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeVideoModal();
+            }
+        });
+
         const translations = {
             es: {
                 carousel: [
-                    { label: "VOICE INPUT", title: 'Registro <span class="text-primary italic">Inmediato</span>', desc: "Tu voz es la consola de comando. Carga gastos en segundos sin tocar la pantalla.", type: "voice", val: '"Panadería 1200 con Débito"' },
+                    { label: "Registro de Voz", title: 'Registro <span class="text-primary italic">Inmediato</span>', desc: "Tu voz es la consola de comando. Carga gastos en segundos sin tocar la pantalla.", type: "voice" },
                     { 
-                        label: "PRICE TRACKING", title: 'Radar de <span class="text-rose-600 italic">Precios</span>', desc: "Detecta la fluctuación real de cada producto. Sé consciente de lo que pagas.", type: "inflation",
+                        label: "Radar de Precios", title: 'Radar de <span class="text-rose-600 italic">Precios</span>', desc: "Detecta la fluctuación real de cada producto. Sé consciente de lo que pagas.", type: "inflation",
                         chartTitle: "Evolución Mensual",
                         kpis: ["Var. Prom", "Categoría", "Gasto Mes"],
                         cats: ["Alimentos", "Servicios", "Hogar"]
                     },
                     { 
-                        label: "TOTAL CONTROL", title: 'Consola <span class="text-slate-900 italic font-bold">Financiera</span>', desc: "Tarjetas, cuotas y presupuestos en una sola visión estratégica.", type: "dashboard",
-                        chartTitles: ["Distribución", "Ranking", "Historial"],
-                        types: ["Fijos", "Var"],
-                        months: ["Ene", "Feb", "Mar"]
+                        label: "Dashboard Pro", title: 'Dashboard <span class="text-primary italic">Pro</span>', desc: "Visualización avanzada de tus KPI financieros y proyecciones estratégicas.", type: "dashboard"
                     }
                 ]
             }
@@ -154,49 +356,51 @@
             document.getElementById('carousel').innerHTML = t.carousel.map((s, i) => `
                 <div class="hero-slide flex-col items-center">
                     <div class="w-full p-10 pb-4 space-y-4">
-                        <div class="inline-block px-3 py-1 bg-slate-50 text-slate-400 rounded text-[9px] font-black tracking-widest uppercase border border-slate-100">${s.label}</div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 text-slate-400 rounded text-[9px] font-black tracking-widest uppercase border border-slate-100">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                            ${s.label}
+                        </div>
                         <h2 class="text-3xl font-extrabold tracking-tighter italic text-slate-900">${s.title}</h2>
                         <p class="text-slate-500 text-[13px] font-medium leading-relaxed italic">${s.desc}</p>
                     </div>
                     <div class="w-full p-8 pt-0">
-                        <div class="db-dark h-[300px] p-8 text-white overflow-hidden flex flex-col gap-4 shadow-xl">
+                        <div class="db-dark h-[240px] text-white overflow-hidden flex flex-col gap-4 shadow-xl relative group">
                             ${s.type === 'voice' ? `
-                                <div class="flex-1 flex flex-col items-center justify-center">
-                                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center animate-pulse mb-6"><i data-lucide="mic" class="w-8 h-8 text-white"></i></div>
-                                    <p class="text-blue-400 font-mono text-[10px] tracking-widest uppercase italic">${s.val}</p>
+                                <div onclick="openVideoModal()" class="cursor-pointer w-full h-full relative">
+                                    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                                        <source src="images/voice.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                        <div class="w-16 h-16 bg-primary/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                            <i data-lucide="play" class="w-6 h-6 text-white ml-1"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             ` : s.type === 'inflation' ? `
-                                <div class="grid grid-cols-3 gap-3">
-                                    <div class="db-card p-3 text-center"><p class="text-[6px] text-slate-500 uppercase font-black tracking-widest">${s.kpis[0]}</p><p class="text-rose-500 text-[10px] font-black">+14.2%</p></div>
-                                    <div class="db-card p-3 text-center"><p class="text-[6px] text-slate-500 uppercase font-black tracking-widest">${s.kpis[1]}</p><p class="text-amber-500 text-[10px] font-black">${s.cats[0]}</p></div>
-                                    <div class="db-card p-3 text-center"><p class="text-[6px] text-slate-500 uppercase font-black tracking-widest">${s.kpis[2]}</p><p class="text-blue-400 text-[10px] font-black">$245k</p></div>
-                                </div>
-                                <div class="db-card flex-1 p-5 overflow-hidden">
-                                    <p class="text-[8px] font-black uppercase mb-4 text-slate-500 tracking-widest leading-none">${s.chartTitle}</p>
-                                    <div class="space-y-4">
-                                        ${s.cats.map((cat, idx) => `
-                                            <div class="flex items-center gap-3">
-                                                <span class="text-[7px] w-12 text-right text-slate-400 font-black uppercase">${cat}</span>
-                                                <div class="flex-1 h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                                                    <div class="h-full ${['bg-rose-500','bg-amber-500','bg-blue-500'][idx]}" style="width: ${[92, 75, 55][idx]}%"></div>
+                                <div class="p-8 flex flex-col gap-4 w-full h-full">
+                                    <div class="grid grid-cols-3 gap-3">
+                                        <div class="db-card p-3 text-center"><p class="text-[6px] text-slate-500 uppercase font-black tracking-widest">${s.kpis[0]}</p><p class="text-rose-500 text-[10px] font-black">+14.2%</p></div>
+                                        <div class="db-card p-3 text-center"><p class="text-[6px] text-slate-500 uppercase font-black tracking-widest">${s.kpis[1]}</p><p class="text-amber-500 text-[10px] font-black">${s.cats[0]}</p></div>
+                                        <div class="db-card p-3 text-center"><p class="text-[6px] text-slate-500 uppercase font-black tracking-widest">${s.kpis[2]}</p><p class="text-blue-400 text-[10px] font-black">$245k</p></div>
+                                    </div>
+                                    <div class="db-card flex-1 p-5 overflow-hidden">
+                                        <p class="text-[8px] font-black uppercase mb-4 text-slate-500 tracking-widest leading-none">${s.chartTitle}</p>
+                                        <div class="space-y-4">
+                                            ${s.cats.map((cat, idx) => `
+                                                <div class="flex items-center gap-3">
+                                                    <span class="text-[7px] w-12 text-right text-slate-400 font-black uppercase">${cat}</span>
+                                                    <div class="flex-1 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                                        <div class="h-full ${['bg-rose-500','bg-amber-500','bg-blue-500'][idx]}" style="width: ${[92, 75, 55][idx]}%"></div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        `).join('')}
+                                            `).join('')}
+                                        </div>
                                     </div>
                                 </div>
                             ` : `
-                                <div class="grid grid-cols-2 gap-4 flex-1">
-                                    <div class="db-card p-5 flex flex-col items-center justify-center relative">
-                                        <p class="text-[7px] font-black uppercase mb-3 text-slate-500 absolute top-4 left-4 tracking-widest uppercase">${s.chartTitles[0]}</p>
-                                        <div class="w-16 h-16 border-4 border-slate-800 border-t-blue-500 rounded-full"></div>
-                                    </div>
-                                    <div class="db-card p-5">
-                                        <p class="text-[7px] font-black uppercase mb-3 text-slate-500 tracking-widest uppercase">${s.chartTitles[1]}</p>
-                                        <div class="space-y-2">
-                                            <div class="h-1 w-full bg-slate-800 rounded-full"><div class="h-full w-3/4 bg-blue-500"></div></div>
-                                            <div class="h-1 w-full bg-slate-800 rounded-full"><div class="h-full w-1/2 bg-blue-500"></div></div>
-                                        </div>
-                                    </div>
+                                <div class="w-full h-full relative">
+                                    <img src="images/dashboard_hero.jpg" class="w-full h-full object-cover opacity-80" alt="Dashboard Pro">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                                 </div>
                             `}
                         </div>
@@ -218,7 +422,11 @@
             document.querySelectorAll('.hero-dot').forEach((d, i) => i === idx ? d.classList.add('active') : d.classList.remove('active'));
         }
 
-        window.onload = () => { render(); setInterval(() => { currentSlide = (currentSlide + 1) % 3; goToSlide(currentSlide); }, 6000); };
+        window.onload = () => { 
+            render(); 
+            renderModules();
+            setInterval(() => { currentSlide = (currentSlide + 1) % 3; goToSlide(currentSlide); }, 6000); 
+        };
     </script>
 </body>
 </html>
