@@ -30,15 +30,16 @@
     <!-- Navegación -->
     <nav class="glass-nav sticky top-0 z-[100] border-b border-slate-100 px-8 py-5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3 font-extrabold text-2xl tracking-tighter italic text-slate-900">
+            <a href="index.html" class="flex items-center gap-3 font-extrabold text-2xl tracking-tighter italic text-slate-900">
                 <div class="bg-primary text-white p-1.5 rounded-lg shadow-lg shadow-blue-100">
                     <i data-lucide="command" class="w-6 h-6"></i>
                 </div>
                 <span>VANT</span>
-            </div>
+            </a>
             <div class="hidden lg:flex gap-10 font-bold text-[10px] uppercase tracking-[0.25em] text-slate-400">
+                <a href="index.html" class="hover:text-primary transition text-slate-500">VANT</a>
                 <a href="#consola" class="hover:text-primary transition text-slate-500">Funcionalidades</a>
-                <a href="#" class="hover:text-primary transition text-slate-500">Dashboard</a>
+                <a href="dashboard.html" target="_blank" class="hover:text-primary transition text-slate-500">Dashboard</a>
             </div>
             <button class="bg-slate-900 text-white px-7 py-2.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-primary transition-all shadow-sm">
                 Acceder
@@ -47,7 +48,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="max-w-7xl mx-auto px-8 pt-10 pb-8 overflow-hidden">
+    <header class="max-w-7xl mx-auto px-8 pt-10 pb-2 overflow-hidden">
         <div class="grid lg:grid-cols-12 gap-16 items-start">
             
             <!-- Bloque de Texto Rediseñado -->
@@ -58,13 +59,12 @@
                 </div>
                 <div class="space-y-8 border-l-2 border-slate-100 pl-8">
                     <h1 class="text-2xl md:text-3xl font-light leading-[1.2] tracking-tight text-slate-600">
-                        Registra por voz, simplifica tu gestión, <br>
+                        <span class="italic">Registra por voz</span>, simplifica tu gestión, <br>
                         <span class="font-bold text-slate-900">toma el control total para proteger tu dinero.</span>
                     </h1>
-                    
-                    <p class="text-base text-slate-400 font-medium leading-relaxed max-w-lg italic">
-                        Domina tus tarjetas, rastrea la fluctuación de tus precios y organiza tus finanzas. <br>
-                        <span class="text-slate-900 font-semibold not-italic">Gestión inteligente al alcance de tu voz.</span>
+
+                    <p class="text-base text-slate-400 font-medium leading-relaxed max-w-lg">
+                        Domina tus tarjetas, rastrea la fluctuación de tus precios y organiza tus finanzas. <br>                        <span class="text-slate-900 font-semibold not-italic">Gestión inteligente al alcance de tu voz.</span>
                     </p>
                 </div>
             </div>
@@ -81,7 +81,7 @@
     </header>
 
     <!-- Secciones de Poder -->
-    <section id="consola" class="max-w-7xl mx-auto px-8 py-12 border-t border-slate-50">
+    <section id="consola" class="max-w-7xl mx-auto px-8 py-4 border-t border-slate-50">
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="modules-container">
             <!-- Los módulos se cargarán mediante JS -->
         </div>
@@ -129,7 +129,7 @@
             <div class="bg-slate-900 text-white p-1 rounded-md"><i data-lucide="command" class="w-4 h-4"></i></div>
             <span>VANT</span>
         </div>
-        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-[0.3em]">© 2026 // Financial Operating System</p>
+        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-[0.3em]">© 2026 // Copyright</p>
     </footer>
 
     <script>
@@ -248,10 +248,12 @@
             const container = document.getElementById('modules-container');
             container.innerHTML = modules.map(m => `
                 <div onclick="openModal('${m.id}')" class="p-8 rounded-[2rem] command-card cursor-pointer group bg-white border border-slate-100">
-                    <div class="${m.color} mb-6 shadow-sm transition-transform group-hover:scale-110">
-                        <i data-lucide="${m.icon}" class="w-6 h-6"></i>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="${m.color} shadow-sm transition-transform group-hover:scale-110">
+                            <i data-lucide="${m.icon}" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold tracking-tight">${m.title}</h4>
                     </div>
-                    <h4 class="text-lg font-bold mb-3 tracking-tight">${m.title}</h4>
                     <p class="text-slate-500 text-xs leading-relaxed">${m.short}</p>
                 </div>
             `).join('');
@@ -361,7 +363,7 @@
                             ${s.label}
                         </div>
                         <h2 class="text-3xl font-extrabold tracking-tighter italic text-slate-900">${s.title}</h2>
-                        <p class="text-slate-500 text-[13px] font-medium leading-relaxed italic">${s.desc}</p>
+                        <p class="text-slate-500 text-[13px] font-medium leading-relaxed">${s.desc}</p>
                     </div>
                     <div class="w-full p-8 pt-0">
                         <div class="db-dark h-[240px] text-white overflow-hidden flex flex-col gap-4 shadow-xl relative group">
