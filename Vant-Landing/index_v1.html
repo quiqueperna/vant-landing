@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="https://www.appscloudbox.com/spendlog/">
+    <title>SpendLog | Gestión Financiera de Precisión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; letter-spacing: -0.01em; }
+        .bg-primary { background-color: #2563eb; }
+        .text-primary { color: #3b82f6; }
+        .border-primary { border-color: #3b82f6; }
+        .glass-nav { background: rgba(10, 15, 30, 0.88); backdrop-filter: blur(16px); }
+        .command-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #1e293b; }
+        .command-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4); border-color: #3b82f6; }
+
+        /* Carousel Styles */
+        .hero-carousel-viewport { overflow: hidden; width: 100%; border-radius: 2rem; border: 1px solid rgb(51 65 85); background: #0a0f1e; }
+        .hero-carousel-container { display: flex; transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); width: 100%; }
+        .hero-slide { min-width: 100%; width: 100%; display: flex; align-items: stretch; }
+        .hero-dot.active { width: 1.25rem; background-color: #3b82f6; opacity: 1; }
+        .db-dark { background-color: #0f172a; border-radius: 1.5rem; }
+        .db-card { background-color: #1e293b; border: 1px solid #334155; border-radius: 0.75rem; }
+    </style>
+</head>
+<body class="bg-[#0a0f1e] text-slate-100 antialiased">
+
+    <!-- Navegación -->
+    <nav class="glass-nav sticky top-0 z-[100] border-b border-slate-800 px-8 py-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 font-extrabold text-2xl tracking-tighter italic text-slate-100">
+                <div class="bg-primary text-white p-1.5 rounded-lg shadow-lg shadow-blue-900">
+                    <i data-lucide="command" class="w-6 h-6"></i>
+                </div>
+                <span>SpendLog</span>
+            </a>
+            <div class="hidden lg:flex gap-10 font-bold text-[10px] uppercase tracking-[0.25em] text-slate-500">
+                <a href="index.html" class="hover:text-primary transition text-slate-400">SpendLog</a>
+                <a href="#consola" class="hover:text-primary transition text-slate-400">Funcionalidades</a>
+            </div>
+            <a href="https://spendlog.appscloudbox.com/" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-7 py-2.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-sm">
+                Acceder
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="max-w-7xl mx-auto px-8 pt-10 pb-2 overflow-hidden">
+        <div class="grid lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Bloque de Texto Rediseñado -->
+            <div class="lg:col-span-5 pt-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-slate-800 text-slate-400 rounded-full text-[9px] font-black tracking-widest uppercase border border-slate-700 mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                    Tu aliado financiero
+                </div>
+                <div class="space-y-8 border-l-2 border-slate-700 pl-8">
+                    <h1 class="text-2xl md:text-3xl font-light leading-[1.2] tracking-tight text-slate-300">
+                        <span class="italic">Registra por voz, simplifica tu gestión y toma el control total para proteger tu dinero.</span>
+                    </h1>
+
+                    <p class="text-base text-slate-400 font-medium leading-relaxed max-w-lg">
+                        Domina tus tarjetas, rastrea la fluctuación de tus precios y organiza tus finanzas. <br>                        <span class="text-slate-100 font-semibold not-italic">Gestión inteligente al alcance de tu voz.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Carrusel -->
+            <div class="relative w-full lg:col-span-7">
+                <div class="hero-carousel-viewport shadow-2xl shadow-blue-900/5 border-slate-600">
+                    <div id="carousel" class="hero-carousel-container"></div>
+                    <div id="carousel-dots" class="flex px-12 pb-8 gap-2"></div>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+
+    <!-- Secciones de Poder -->
+    <section id="consola" class="max-w-7xl mx-auto px-8 py-4 border-t border-slate-800">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="modules-container">
+            <!-- Los módulos se cargarán mediante JS -->
+        </div>
+    </section>
+
+    <!-- Modal de Detalle -->
+    <div id="module-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm transition-all">
+        <div class="bg-slate-900 w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden transform transition-all scale-95 opacity-0" id="modal-content">
+            <div class="relative h-64 bg-slate-800 overflow-hidden">
+                <img id="modal-image" src="" alt="Modulo" class="w-full h-full object-cover">
+                <button onclick="closeModal()" class="absolute top-6 right-6 bg-slate-800/80 backdrop-blur text-slate-100 p-2 rounded-full hover:bg-slate-700 transition-all">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-10 space-y-6">
+                <div id="modal-icon" class="text-primary"></div>
+                <div>
+                    <h3 id="modal-title" class="text-2xl font-bold tracking-tight text-slate-100 mb-2"></h3>
+                    <p id="modal-description" class="text-slate-400 leading-relaxed text-base italic font-medium"></p>
+                </div>
+                <div class="pt-6 border-t border-slate-700">
+                    <button onclick="closeModal()" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all">
+                        Entendido
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Video -->
+    <div id="video-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md transition-all">
+        <div class="bg-black w-full max-w-4xl rounded-[2.5rem] shadow-2xl overflow-hidden relative transform transition-all scale-95 opacity-0" id="video-modal-content">
+            <button onclick="closeVideoModal()" class="absolute top-6 right-6 z-10 bg-white/20 hover:bg-white/40 backdrop-blur text-white p-2 rounded-full transition-all">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <video id="modal-player" controls class="w-full aspect-video bg-black">
+                <source src="images/voice.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="max-w-7xl mx-auto px-8 py-16 border-t border-slate-800 flex justify-between items-center">
+        <div class="flex items-center gap-2 font-bold text-lg tracking-tighter opacity-30">
+            <div class="bg-slate-600 text-white p-1 rounded-md"><i data-lucide="command" class="w-4 h-4"></i></div>
+            <span>SpendLog</span>
+        </div>
+        <p class="text-[9px] font-bold text-slate-500 uppercase tracking-[0.3em]">© 2026 // Copyright</p>
+    </footer>
+
+    <script>
+        const modules = [
+            {
+                id: 'registro',
+                icon: 'mic',
+                color: 'text-primary',
+                title: 'Registro por Voz',
+                short: 'Voz NLP y manual con autocompletado inteligente.',
+                long: 'Habla y la app entiende: "leche 2 litros 1500". Procesa montos, cuotas y medios de pago automáticamente mediante procesamiento de lenguaje natural avanzado.',
+                image: 'images/registro.jpg'
+            },
+            {
+                id: 'categorizacion',
+                icon: 'layers',
+                color: 'text-indigo-500',
+                title: 'Categorización de Gastos',
+                short: 'Control granular desde el tipo de gasto hasta el ítem exacto.',
+                long: 'La jerarquía más avanzada del mercado: Tipo (N1), Área (N2), Subcategoría (N3) e Ítem (N4). Organiza tu catálogo personal con precisión milimétrica.',
+                image: 'images/precision.jpg'
+            },
+            {
+                id: 'tarjetas',
+                icon: 'credit-card',
+                color: 'text-emerald-500',
+                title: 'Gestión de Tarjetas de Créditos',
+                short: 'Automatización de tarjetas, cierres y vencimientos.',
+                long: 'Seguimiento de 2 a 120 cuotas con generación automática de registros futuros según el día de cierre de cada tarjeta. Etiquetado inteligente de progresión.',
+                image: 'images/tarjetas.jpg'
+            },
+            {
+                id: 'inflacion',
+                icon: 'trending-up',
+                color: 'text-rose-500',
+                title: 'Evolución de Gastos',
+                short: 'Seguimiento de precios unitarios y valor real.',
+                long: 'Rastrea la evolución del precio de cada ítem (monto/cantidad). Proyecciones futuras con regresión lineal e identificación de productos más afectados.',
+                image: 'images/inflacion.jpg'
+            },
+            {
+                id: 'dashboard',
+                icon: 'layout-dashboard',
+                color: 'text-blue-500',
+                title: 'Dashboard Pro',
+                short: 'KPIs, gráficos y widgets personalizables.',
+                long: 'Visualiza tu salud financiera con gráficos de dona por tipo, barras por subcategoría y widgets que puedes organizar a tu medida.',
+                image: 'images/dashboard.jpg'
+            },
+            {
+                id: 'ingresos',
+                icon: 'wallet',
+                color: 'text-cyan-500',
+                title: 'Gestión de Ingresos',
+                short: 'Múltiples fuentes y ratio gasto/ingreso real.',
+                long: 'Registra sueldos, freelance y rentas. El sistema calcula automáticamente la relación de gastos frente a tus ingresos totales del mes.',
+                image: 'images/ingresos.jpg'
+            },
+            {
+                id: 'recurrentes',
+                icon: 'refresh-cw',
+                color: 'text-violet-500',
+                title: 'Gastos Recurrentes',
+                short: 'Automatización de pagos fijos y cíclicos.',
+                long: 'Configura gastos que se repiten automáticamente con frecuencias personalizadas. Gestiona tus suscripciones y servicios fijos sin esfuerzo.',
+                image: 'images/recurrentes.jpg'
+            },
+            {
+                id: 'listado',
+                icon: 'list',
+                color: 'text-slate-600',
+                title: 'Auditoría Total',
+                short: 'Listado avanzado con filtros combinados y búsqueda.',
+                long: 'Tabla configurable con ordenamiento por cualquier columna, filtros por período, medio de pago y búsqueda de texto libre.',
+                image: 'images/listado.jpg'
+            },
+            {
+                id: 'revision',
+                icon: 'check-square',
+                color: 'text-amber-500',
+                title: 'Bandeja de Revisión',
+                short: 'Panel de auditoría para carga de datos por voz.',
+                long: 'Espacio dedicado para revisar registros no reconocidos automáticamente. Corrige montos, asigna categorías y entrena al sistema para futuros registros.',
+                image: 'images/revision.jpg'
+            },
+            {
+                id: 'advisor',
+                icon: 'cpu',
+                color: 'text-slate-300',
+                title: 'Asesor Virtual',
+                short: 'Optimización de compras y proyecciones IA.',
+                long: 'Motor determinista que sugiere compras al por mayor, detecta crecimientos anómalos y proyecta el cierre de mes basado en tu ritmo actual.',
+                image: 'images/advisor.jpg'
+            },
+            {
+                id: 'settings',
+                icon: 'settings',
+                color: 'text-slate-400',
+                title: 'Configuración Global',
+                short: 'Multi-moneda, temas y gestión de activos.',
+                long: 'Personaliza tu experiencia con 10+ monedas, modo oscuro automático y gestión completa de tarjetas y unidades personalizadas.',
+                image: 'images/settings.jpg'
+            },
+            {
+                id: 'pwa',
+                icon: 'smartphone',
+                color: 'text-blue-600',
+                title: 'Ecosistema PWA',
+                short: 'Instalable, sincronizado y seguro (RLS).',
+                long: 'Lleva SpendLog en tu móvil como una app nativa. Datos sincronizados en la nube y aislados mediante seguridad Row-Level Security.',
+                image: 'images/pwa.jpg'
+            },
+
+            {
+                id: 'estadisticas',
+                icon: 'smartphone',
+                color: 'text-blue-600',
+                title: 'Estadisticas',
+                short: 'ver texto y icono',
+                long: 'ver texto e imagen',
+                image: 'images/pwa.jpg'
+            },
+            {
+                id: 'gestionGasto',
+                icon: 'smartphone',
+                color: 'text-blue-600',
+                title: 'Gestión de Gastos',
+                short: 'ver texto y icono',
+                long: 'ver texto e imagen',
+                image: 'images/pwa.jpg'
+            }
+        ];
+
+        function renderModules() {
+            const container = document.getElementById('modules-container');
+            container.innerHTML = modules.map(m => `
+                <div onclick="openModal('${m.id}')" class="p-8 rounded-[2rem] command-card cursor-pointer group bg-[#080f20] border border-slate-700">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="${m.color} shadow-sm transition-transform group-hover:scale-110">
+                            <i data-lucide="${m.icon}" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold tracking-tight text-slate-100">${m.title}</h4>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed">${m.short}</p>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function openModal(id) {
+            const m = modules.find(x => x.id === id);
+            const modal = document.getElementById('module-modal');
+            const content = document.getElementById('modal-content');
+            
+            document.getElementById('modal-title').innerText = m.title;
+            document.getElementById('modal-description').innerText = m.long;
+            document.getElementById('modal-image').src = m.image;
+            document.getElementById('modal-icon').innerHTML = `<i data-lucide="${m.icon}" class="w-10 h-10"></i>`;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('module-modal');
+            const content = document.getElementById('modal-content');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+
+        function openVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const content = document.getElementById('video-modal-content');
+            const player = document.getElementById('modal-player');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+                player.play();
+            }, 10);
+            
+            lucide.createIcons();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const content = document.getElementById('video-modal-content');
+            const player = document.getElementById('modal-player');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                player.pause();
+                player.currentTime = 0;
+            }, 300);
+        }
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeVideoModal();
+            }
+        });
+
+        const translations = {
+            es: {
+                carousel: [
+                    { label: "Registro de Voz", title: 'Registro <span class="text-primary italic">Inmediato</span>', desc: "Tu voz es la consola de comando. Carga gastos en segundos sin tocar la pantalla.", type: "voice" },
+                    { 
+                        label: "Radar de Precios", title: 'Radar de <span class="text-rose-600 italic">Precios</span>', desc: "Detecta la fluctuación real de cada producto. Sé consciente de lo que pagas.", type: "inflation",
+                        chartTitle: "Evolución Mensual",
+                        kpis: ["Var. Prom", "Categoría", "Gasto Mes"],
+                        cats: ["Alimentos", "Servicios", "Hogar"]
+                    },
+                    { 
+                        label: "Dashboard Pro", title: 'Dashboard <span class="text-primary italic">Pro</span>', desc: "Visualización avanzada de tus KPI financieros y proyecciones estratégicas.", type: "dashboard"
+                    }
+                ]
+            }
+        };
+
+        const t = translations.es;
+
+        function render() {
+            document.getElementById('carousel').innerHTML = t.carousel.map((s, i) => `
+                <div class="hero-slide flex-col items-center">
+                    <div class="w-full p-10 pb-4 space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-slate-800 text-slate-400 rounded text-[9px] font-black tracking-widest uppercase border border-slate-700">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                            ${s.label}
+                        </div>
+                        <h2 class="text-3xl font-extrabold tracking-tighter italic text-slate-100">${s.title}</h2>
+                        <p class="text-slate-400 text-[13px] font-medium leading-relaxed">${s.desc}</p>
+                    </div>
+                    <div class="w-full p-8 pt-0">
+                        <div class="db-dark h-[240px] text-white overflow-hidden flex flex-col gap-4 shadow-xl relative group">
+                            ${s.type === 'voice' ? `
+                                <div onclick="openVideoModal()" class="cursor-pointer w-full h-full relative">
+                                    <video id="carousel-video" muted loop playsinline preload="auto" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                                        <source src="images/voice.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                        <div class="w-16 h-16 bg-primary/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                            <i data-lucide="play" class="w-6 h-6 text-white ml-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            ` : s.type === 'inflation' ? `
+                                <div class="p-8 flex flex-col gap-4 w-full h-full">
+                                    <div class="grid grid-cols-3 gap-3">
+                                        <div class="db-card p-3 text-center"><p class="text-[6px] text-slate-500 uppercase font-black tracking-widest">${s.kpis[0]}</p><p class="text-rose-500 text-[10px] font-black">+14.2%</p></div>
+                                        <div class="db-card p-3 text-center"><p class="text-[6px] text-slate-500 uppercase font-black tracking-widest">${s.kpis[1]}</p><p class="text-amber-500 text-[10px] font-black">${s.cats[0]}</p></div>
+                                        <div class="db-card p-3 text-center"><p class="text-[6px] text-slate-500 uppercase font-black tracking-widest">${s.kpis[2]}</p><p class="text-blue-400 text-[10px] font-black">$245k</p></div>
+                                    </div>
+                                    <div class="db-card flex-1 p-5 overflow-hidden">
+                                        <p class="text-[8px] font-black uppercase mb-4 text-slate-500 tracking-widest leading-none">${s.chartTitle}</p>
+                                        <div class="space-y-4">
+                                            ${s.cats.map((cat, idx) => `
+                                                <div class="flex items-center gap-3">
+                                                    <span class="text-[7px] w-12 text-right text-slate-400 font-black uppercase">${cat}</span>
+                                                    <div class="flex-1 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                                        <div class="h-full ${['bg-rose-500','bg-amber-500','bg-blue-500'][idx]}" style="width: ${[92, 75, 55][idx]}%"></div>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                </div>
+                            ` : `
+                                <div class="w-full h-full relative">
+                                    <img src="images/dashboard_hero.jpg" class="w-full h-full object-cover opacity-80" alt="Dashboard Pro">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                </div>
+                            `}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('carousel-dots').innerHTML = t.carousel.map((_, i) => `
+                <button onclick="goToSlide(${i})" class="hero-dot w-1.5 h-1.5 rounded-full bg-slate-700 ${i===0?'active':''}"></button>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        let currentSlide = 0;
+        function goToSlide(idx) {
+            currentSlide = idx;
+            document.getElementById('carousel').style.transform = `translateX(-${idx * 100}%)`;
+            document.querySelectorAll('.hero-dot').forEach((d, i) => i === idx ? d.classList.add('active') : d.classList.remove('active'));
+        }
+
+        window.onload = () => {
+            render();
+            renderModules();
+            setInterval(() => { currentSlide = (currentSlide + 1) % 3; goToSlide(currentSlide); }, 6000);
+            const vid = document.getElementById('carousel-video');
+            if (vid) { vid.play().catch(() => {}); }
+        };
+    </script>
+</body>
+</html>
