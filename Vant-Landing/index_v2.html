@@ -402,7 +402,7 @@
             title: 'Registro por Voz',
             short: 'Voz NLP y manual con autocompletado inteligente.',
             long: 'Habla y la app entiende: "leche 2 litros 1500". Procesa montos, cuotas y medios de pago automáticamente mediante procesamiento de lenguaje natural avanzado.',
-            image: 'images/spendlog-voz.png'
+            image: 'images/spend-voz.jpeg'
         },
         {
             id: 'categorizacion',
@@ -559,6 +559,7 @@
         document.getElementById('modal-description').innerText = m.long;
         const modalImg = document.getElementById('modal-image');
         const modalHtml = document.getElementById('modal-html-preview');
+        const container = document.getElementById('modal-media-container');
         if (m.id === 'categorizacion') {
             modalImg.classList.add('hidden');
             modalHtml.classList.remove('hidden');
@@ -567,6 +568,13 @@
             modalImg.classList.remove('hidden');
             modalHtml.classList.add('hidden');
             modalImg.src = m.image;
+            if (m.id === 'registro') {
+                modalImg.className = 'w-full h-64 object-contain';
+                container.style.backgroundColor = '#111827';
+            } else {
+                modalImg.className = 'w-full h-64 object-cover';
+                container.style.backgroundColor = '';
+            }
         }
         document.getElementById('modal-icon').innerHTML = `<i data-lucide="${m.icon}" class="w-10 h-10"></i>`;
 
