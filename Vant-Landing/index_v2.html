@@ -511,7 +511,9 @@
 
         document.getElementById('modal-title').innerText = m.title;
         document.getElementById('modal-description').innerText = m.long;
-        document.getElementById('modal-image').src = m.image;
+        const modalImg = document.getElementById('modal-image');
+        modalImg.src = m.image;
+        modalImg.className = `w-full h-full ${m.id === 'categorizacion' ? 'object-contain' : 'object-cover'}`;
         document.getElementById('modal-icon').innerHTML = `<i data-lucide="${m.icon}" class="w-10 h-10"></i>`;
 
         modal.classList.remove('hidden');
