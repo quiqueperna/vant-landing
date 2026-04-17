@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<base href="https://www.appscloudbox.com/spendlog/"/>
+<!-- <base href="https://www.appscloudbox.com/spendlog/"/> -->
 <title>SpendLog</title>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -162,16 +162,15 @@
 
 <section class="py-12 px-8 bg-surface-container-low">
 <div class="max-w-[1440px] mx-auto">
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-        <div class="space-y-5 pt-1">
-            <span class="text-primary text-xs font-bold tracking-widest uppercase font-label">SpendLog Proyecciones</span>
-            <h2 class="text-4xl md:text-5xl font-bold font-headline mt-2">Proyección Financiera</h2>
-            <p class="text-on-surface-variant text-lg leading-relaxed mt-6">
-                Nuestras proyecciones te ayudan a conocer cuáles serán tus gastos en los próximos meses según información de tarjetas y gastos recurrentes.
-            </p>
-        </div>
-        <!-- Monthly Evolution Bar Chart -->
-        <div class="glass-card p-8 rounded-xl border border-outline-variant/10 min-h-[400px] flex flex-col">
+    <div class="mb-10 text-center space-y-4">
+        <span class="text-primary text-xs font-bold tracking-widest uppercase font-label">SpendLog Proyecciones</span>
+        <h2 class="text-4xl md:text-5xl font-bold font-headline">Proyección Financiera</h2>
+        <p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl mx-auto">
+            Nuestras proyecciones te ayudan a conocer cuáles serán tus gastos en los próximos meses según información de tarjetas y gastos recurrentes.
+        </p>
+    </div>
+    <!-- Monthly Evolution Bar Chart -->
+    <div class="glass-card p-8 rounded-xl border border-outline-variant/10 min-h-[400px] flex flex-col max-w-3xl mx-auto">
             <div class="flex justify-between items-end mb-12">
                 <div>
                     <h4 class="text-white font-bold text-lg">Proyección 6 Meses</h4>
@@ -223,7 +222,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 </section>
 
@@ -405,7 +403,7 @@
             icon: 'layout-dashboard',
             iconColor: 'text-primary',
             iconBg: 'bg-primary/10 group-hover:bg-primary/20',
-            title: 'Dashboard Pro',
+            title: 'Dashboard',
             short: 'KPIs, gráficos y widgets personalizables.',
             long: 'Visualiza tu salud financiera con gráficos de dona por tipo, barras por subcategoría y widgets que puedes organizar a tu medida.',
             image: 'images/spendlog-dashboard.png'
@@ -431,24 +429,24 @@
             image: 'images/recurrentes.jpg'
         },
         {
-            id: 'listado',
-            icon: 'list',
-            iconColor: 'text-slate-400',
-            iconBg: 'bg-slate-400/10 group-hover:bg-slate-400/20',
-            title: 'Auditoría Total',
-            short: 'Listado avanzado con filtros combinados y búsqueda.',
-            long: 'Tabla configurable con ordenamiento por cualquier columna, filtros por período, medio de pago y búsqueda de texto libre.',
-            image: 'images/listado.jpg'
+            id: 'gestionGasto',
+            icon: 'dollar-sign',
+            iconColor: 'text-emerald-400',
+            iconBg: 'bg-emerald-400/10 group-hover:bg-emerald-400/20',
+            title: 'Agenda de Pagos',
+            short: 'Conoce tus próximos pagos.',
+            long: 'Alertas automatizadas para que sepas cuando son tus proximos vencimientos.',
+            image: 'images/pwa.jpg'
         },
         {
-            id: 'revision',
-            icon: 'check-square',
-            iconColor: 'text-amber-400',
-            iconBg: 'bg-amber-400/10 group-hover:bg-amber-400/20',
-            title: 'Bandeja de Revisión',
-            short: 'Panel de auditoría para carga de datos por voz.',
-            long: 'Espacio dedicado para revisar registros no reconocidos automáticamente. Corrige montos, asigna categorías y entrena al sistema para futuros registros.',
-            image: 'images/revision.jpg'
+            id: 'estadisticas',
+            icon: 'bar-chart-2',
+            iconColor: 'text-secondary',
+            iconBg: 'bg-secondary/10 group-hover:bg-secondary/20',
+            title: 'Estadísticas',
+            short: 'Información estadisticas para que puedas conocer mejor tus gastos.',
+            long: 'Evoluciones de gastos, diferentes métricas y rankings que te permiten mejorar tu ahorro.',
+            image: 'images/estadisticas.jpg'
         },
         {
             id: 'advisor',
@@ -481,24 +479,24 @@
             image: 'images/pwa.jpg'
         },
         {
-            id: 'estadisticas',
-            icon: 'bar-chart-2',
-            iconColor: 'text-secondary',
-            iconBg: 'bg-secondary/10 group-hover:bg-secondary/20',
-            title: 'Estadísticas',
-            short: 'ver texto y icono',
-            long: 'ver texto e imagen',
-            image: 'images/pwa.jpg'
+            id: 'revision',
+            icon: 'check-square',
+            iconColor: 'text-amber-400',
+            iconBg: 'bg-amber-400/10 group-hover:bg-amber-400/20',
+            title: 'Bandeja de Revisión',
+            short: 'Panel de auditoría para carga de datos por voz.',
+            long: 'Espacio dedicado para revisar registros no reconocidos automáticamente. Corrige montos, asigna categorías y entrena al sistema para futuros registros.',
+            image: 'images/revision.jpg'
         },
         {
-            id: 'gestionGasto',
-            icon: 'dollar-sign',
-            iconColor: 'text-emerald-400',
-            iconBg: 'bg-emerald-400/10 group-hover:bg-emerald-400/20',
-            title: 'Gestión de Gastos',
-            short: 'ver texto y icono',
-            long: 'ver texto e imagen',
-            image: 'images/pwa.jpg'
+            id: 'listado',
+            icon: 'list',
+            iconColor: 'text-slate-400',
+            iconBg: 'bg-slate-400/10 group-hover:bg-slate-400/20',
+            title: 'Auditoría Total',
+            short: 'Listado avanzado con filtros combinados y búsqueda.',
+            long: 'Tabla configurable con ordenamiento por cualquier columna, filtros por período, medio de pago y búsqueda de texto libre.',
+            image: 'images/listado.jpg'
         }
     ];
 
@@ -627,8 +625,8 @@
                     cats: ["Alimentos", "Servicios", "Hogar"]
                 },
                 {
-                    label: "Dashboard Pro",
-                    title: 'Dashboard <span class="text-primary italic">Pro</span>',
+                    label: "Dashboard",
+                    title: 'Dashboard',
                     desc: "Visualización avanzada de tus KPI financieros y proyecciones estratégicas.",
                     type: "dashboard"
                 }
@@ -685,7 +683,7 @@
                             </div>
                         ` : `
                             <div class="w-full h-full relative">
-                                <img src="images/spendlog-dashboard.png" class="w-full h-full object-cover opacity-80" alt="Dashboard Pro">
+                                <img src="images/spendlog-dashboard.png" class="w-full h-full object-cover opacity-80" alt="Dashboard">
                                 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent"></div>
                             </div>
                         `}
